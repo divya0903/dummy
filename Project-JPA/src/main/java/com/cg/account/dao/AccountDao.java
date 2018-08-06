@@ -14,7 +14,7 @@ public class AccountDao implements IAccountDao {
 
 	@Override
 	public String createAccount(Account account) throws AccountException {
-		EntityManager em = EMUtil.getEntitiManager();
+		EntityManager em = EMUtil.getEntityManager();
 
 		em.getTransaction().begin();
 		em.merge(account);
@@ -41,7 +41,7 @@ public class AccountDao implements IAccountDao {
 		account.setBalance(newBal);
 		account.setModDate("" + new Date());
 
-		EntityManager em = EMUtil.getEntitiManager();
+		EntityManager em = EMUtil.getEntityManager();
 
 		em.getTransaction().begin();
 		em.merge(account);
@@ -60,7 +60,7 @@ public class AccountDao implements IAccountDao {
 		account.setBalance(newBal);
 		account.setModDate("" + new Date());
 
-		EntityManager em = EMUtil.getEntitiManager();
+		EntityManager em = EMUtil.getEntityManager();
 
 		em.getTransaction().begin();
 		em.merge(account);
@@ -91,7 +91,7 @@ public class AccountDao implements IAccountDao {
 	private Account getAccountDetails(String mobile) throws AccountException { //
 		// TODO Auto-generated method stub
 
-		EntityManager em = EMUtil.getEntitiManager();
+		EntityManager em = EMUtil.getEntityManager();
 		Account acc = null;
 		try {
 			TypedQuery<Account> accQuery = em.createQuery("SELECT a FROM Account a WHERE MOBILE=?", Account.class);

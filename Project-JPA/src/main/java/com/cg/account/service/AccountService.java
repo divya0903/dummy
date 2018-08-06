@@ -10,7 +10,7 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public String createAccount(Account account) throws AccountException {
-		// TODO Auto-generated method stub
+
 		return accountDao.createAccount(account);
 	}
 
@@ -54,7 +54,6 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public double showBalance(String mobile) throws AccountException {
-		// TODO Auto-generated method stub
 
 		if (validateMobile(mobile)) {
 			Account acc = accountDao.printTransaction(mobile);
@@ -66,7 +65,7 @@ public class AccountService implements IAccountService {
 
 	@Override
 	public double deposit(String mobile, double amt) throws AccountException {
-		// TODO Auto-generated method stub
+
 		return accountDao.deposit(mobile, amt);
 	}
 

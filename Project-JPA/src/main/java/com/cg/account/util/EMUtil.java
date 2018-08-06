@@ -6,7 +6,7 @@ import javax.persistence.Persistence;
 
 public class EMUtil {
 
-	public static EntityManager getEntitiManager() {
+	public static EntityManager getEntityManager() {
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPA-PU");
 		return emf.createEntityManager();
