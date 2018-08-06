@@ -19,17 +19,17 @@ public class TestCases {
 	IAccountService service = new AccountService();
 
 	/*
-	 * @Before public void init() { // TODO Auto-generated method stub service = new
-	 * AccountService(); acc = new Account(); }
+	 * @Before public void init() { // TODO Auto-generated method stub service =
+	 * new AccountService(); acc = new Account(); }
 	 */
 
 	@Test
 	// Given wrong mobile number.
 	public void testAccountMobile() {
 
-		acc.setName("Deepraj");
+		acc.setName("Divya");
 		acc.setMobile("111111");
-		acc.setEmail("deepraj@gmail.com");
+		acc.setEmail("divya@gmail.com");
 		acc.setBalance(500.0);
 		acc.setModDate("" + new Date());
 
@@ -39,7 +39,8 @@ public class TestCases {
 		} catch (AccountException e) {
 			// TODO: handle exception
 			// System.out.println("wrong mobile:"+e.getMessage());
-			assertEquals("Mobile number should contain 10 digits", e.getMessage());
+			assertEquals("Mobile number should contain 10 digits",
+					e.getMessage());
 		}
 	}
 
@@ -49,7 +50,7 @@ public class TestCases {
 
 		acc.setName("1232456");
 		acc.setMobile("1234567890");
-		acc.setEmail("deepraj@gmail.com");
+		acc.setEmail("divya@gmail.com");
 		acc.setBalance(500.0);
 		acc.setModDate("" + new Date());
 
@@ -69,7 +70,7 @@ public class TestCases {
 
 		acc.setName("");
 		acc.setMobile("1234567890");
-		acc.setEmail("deepraj@gmail.com");
+		acc.setEmail("divya@gmail.com");
 		acc.setBalance(500.0);
 		acc.setModDate("" + new Date());
 
@@ -86,9 +87,9 @@ public class TestCases {
 	@Test
 	public void testAccountEmail() {
 
-		acc.setName("Deepraj");
+		acc.setName("Divya");
 		acc.setMobile("1234567890");
-		acc.setEmail("deeprajgmail.com");
+		acc.setEmail("divyagmail.com");
 		acc.setBalance(500.0);
 		acc.setModDate("" + new Date());
 
@@ -105,9 +106,9 @@ public class TestCases {
 	@Test
 	public void testAccountBalance() {
 
-		acc.setName("Deepraj");
+		acc.setName("Divya");
 		acc.setMobile("1234567890");
-		acc.setEmail("dee@cg.com");
+		acc.setEmail("divya@cg.com");
 		acc.setBalance(-500);
 		acc.setModDate("" + new Date());
 		// System.out.println(acc.getBalance());
@@ -118,16 +119,17 @@ public class TestCases {
 		} catch (AccountException e) {
 			// TODO: handle exception
 			// System.out.println("negative balance:"+e.getMessage());
-			assertEquals("Balance must be a number greater than zero", e.getMessage());
+			assertEquals("Balance must be a number greater than zero",
+					e.getMessage());
 		}
 	}
 
 	@Test
 	public void testCreateAccount() {
 
-		acc.setName("Deepraj");
+		acc.setName("Divya");
 		acc.setMobile("1111111111");
-		acc.setEmail("dee@cg.com");
+		acc.setEmail("divya@cg.com");
 		acc.setBalance(500);
 		acc.setModDate("" + new Date());
 
@@ -144,9 +146,9 @@ public class TestCases {
 	@Test
 	public void testCreateAccount1() {
 
-		acc.setName("Hari");
+		acc.setName("Jeevana");
 		acc.setMobile("2222222222");
-		acc.setEmail("haha@cg.com");
+		acc.setEmail("jeevana@cg.com");
 		acc.setBalance(15000);
 		acc.setModDate("" + new Date());
 
@@ -163,9 +165,9 @@ public class TestCases {
 	@Test
 	public void testCreateAccount2() {
 
-		acc.setName("Radha");
+		acc.setName("Nikitha");
 		acc.setMobile("3333333333");
-		acc.setEmail("radha@cg.com");
+		acc.setEmail("nikitha@cg.com");
 		acc.setBalance(2000);
 		acc.setModDate("" + new Date());
 
@@ -181,9 +183,9 @@ public class TestCases {
 
 	@Test
 	public void testExistingAccount() {
-		acc.setName("Deepraj");
+		acc.setName("Preethi");
 		acc.setMobile("1111111111");
-		acc.setEmail("dee@cg.com");
+		acc.setEmail("preethi@cg.com");
 		acc.setBalance(500);
 		acc.setModDate("" + new Date());
 		try {
@@ -213,7 +215,8 @@ public class TestCases {
 			service.showBalance(mobile);
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Mobile number should contain 10 digits", e.getMessage());
+			assertEquals("Mobile number should contain 10 digits",
+					e.getMessage());
 		}
 
 	}
@@ -224,7 +227,7 @@ public class TestCases {
 		try {
 			acc = service.printTransaction(mobile);
 			service.showBalance(acc.getMobile());
-			assertEquals("Deepraj", acc.getName());
+			assertEquals("Preethi", acc.getName());
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
 
@@ -258,7 +261,8 @@ public class TestCases {
 			}
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Mobile number should contain 10 digits", e.getMessage());
+			assertEquals("Mobile number should contain 10 digits",
+					e.getMessage());
 		}
 
 	}
@@ -271,11 +275,13 @@ public class TestCases {
 			if (service.validateBalance(depositAmt)) {
 				// acc = service.getAccountDetails(acc.getMobile());
 				double bal = service.deposit(mobile, depositAmt);
-				assertNotEquals(service.printTransaction(mobile).getBalance(), bal);
+				assertNotEquals(service.printTransaction(mobile).getBalance(),
+						bal);
 			}
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Balance must be a number greater than zero", e.getMessage());
+			assertEquals("Balance must be a number greater than zero",
+					e.getMessage());
 		}
 
 	}
@@ -306,7 +312,8 @@ public class TestCases {
 			}
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Mobile number should contain 10 digits", e.getMessage());
+			assertEquals("Mobile number should contain 10 digits",
+					e.getMessage());
 		}
 
 	}
@@ -319,11 +326,13 @@ public class TestCases {
 			if (service.validateBalance(amt)) {
 				// acc = service.getAccountDetails(acc.getMobile());
 				double bal = service.withdraw(mobile, amt);
-				assertNotEquals(service.printTransaction(mobile).getBalance(), bal);
+				assertNotEquals(service.printTransaction(mobile).getBalance(),
+						bal);
 			}
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Balance must be a number greater than zero", e.getMessage());
+			assertEquals("Balance must be a number greater than zero",
+					e.getMessage());
 		}
 
 	}
@@ -367,7 +376,8 @@ public class TestCases {
 			service.fundTransfer(acc1.getMobile(), acc2.getMobile(), amount);
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Mobile number should contain 10 digits", e.getMessage());
+			assertEquals("Mobile number should contain 10 digits",
+					e.getMessage());
 		}
 	}
 
@@ -382,7 +392,8 @@ public class TestCases {
 			service.fundTransfer(acc1.getMobile(), acc2.getMobile(), amount);
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Mobile number should contain 10 digits", e.getMessage());
+			assertEquals("Mobile number should contain 10 digits",
+					e.getMessage());
 		}
 	}
 
@@ -397,7 +408,8 @@ public class TestCases {
 			service.fundTransfer(acc1.getMobile(), acc2.getMobile(), amount);
 		} catch (AccountException e) {
 			// TODO Auto-generated catch block
-			assertEquals("Amount must be a number greater than zero", e.getMessage());
+			assertEquals("Amount must be a number greater than zero",
+					e.getMessage());
 		}
 	}
 
